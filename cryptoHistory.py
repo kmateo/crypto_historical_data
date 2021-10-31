@@ -53,7 +53,6 @@ data.drop(data.columns.difference(['Rank','Nombre', 'Símbolo', 'Cap. de Mercado
 #eliminamos los indices
 #data.reset_index(drop=True, inplace=True)
 
-
 #Creamos un dataframe desde el dataset
 df= pd.DataFrame(data)
 df['Precio'] = df['Precio'].str.replace('$', '')
@@ -61,7 +60,6 @@ df['Cap. de Mercado'] = df['Cap. de Mercado'].str.replace('$', '')
 
 print(df)
 print(f'Descarga completa')
-
 
 #df['Precio'].astype(str).astype(double)
 #print(df.dtypes)
