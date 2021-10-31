@@ -4,6 +4,10 @@ import argparse
 import pandas as pd
 from datetime import datetime
 from IPython.display import display
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 # Parseamos los valores de entrada, el intervalo de fechas que queremos analizar.
 parser = argparse.ArgumentParser()
@@ -46,5 +50,21 @@ data = pd.concat(historical_object)
 # Eliminamos las columnas que consideramos innecesarias
 data.drop(data.columns.difference(['Rank','Nombre', 'Símbolo', 'Cap. de Mercado', 'Precio']), 1, inplace=True)
 
+#eliminamos los indices
+#data.reset_index(drop=True, inplace=True)
+
+
+#Creamos un dataframe desde el dataset
+df= pd.DataFrame(data)
+df['Precio'] = df['Precio'].str.replace('$', '')
+df['Cap. de Mercado'] = df['Cap. de Mercado'].str.replace('$', '')
+
+print(df)
 print(f'Descarga completa')
-print(data)
+
+
+#df['Precio'].astype(str).astype(double)
+#print(df.dtypes)
+
+#importamos a csv
+df.to_csv('coins.csv', index = False)
