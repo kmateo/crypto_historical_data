@@ -4,7 +4,7 @@ import argparse
 import pandas as pd
 from datetime import datetime
 from IPython.display import display
-import csv
+import csv 
 
 # Parseamos los valores de entrada, el intervalo de fechas que queremos analizar.
 parser = argparse.ArgumentParser()
