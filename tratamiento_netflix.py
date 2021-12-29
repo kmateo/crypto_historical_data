@@ -11,11 +11,26 @@ df_net = pd.read_csv("Netflix_titulos.csv")
 df_net = df_net.drop(columns = ['description'])
 df_net = df_net.drop(columns = ['cast'])
 
-#df_net['date_added'] = df_net['date_added'].apply(lambda x: pd.to_datetime(str(x), format='%m%d%Y'))
+#Formateo de fecha
+df_net['date_added'] = df_net['date_added'].apply(lambda x: pd.to_datetime(str(x), format='%B%d%Y'))
+
+#Cambio de object a float/int/datetime
 
 
+# Comprobamos Valores nulos
+comprobar_nulos = df.isnull().values.any()
+if(comprobar_nulos == False):
+    print("El dataframe no tiene valores nulos")
+else:
+    print("El dataframe si tiene valores nulos")
 
 
+#Comprobamos Valores duplicados
+valores_duplicados = df.duplicated().values.any()
+if(valores_duplicados == False):
+    print("El dataframe no tiene valores duplicados")
+else:
+    print("El dataframe si tiene valores duplicados")
 
 
 
